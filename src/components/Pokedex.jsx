@@ -25,6 +25,7 @@ export default class Pokedex extends Component {
 						name={poke.name}
 						type={poke.type}
 						exp={poke.base_experience}
+						key={poke.id}
 					/>
 				))}
 			</div>

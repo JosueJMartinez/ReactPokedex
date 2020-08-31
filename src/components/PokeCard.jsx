@@ -7,7 +7,7 @@ export default class PokeCard extends Component {
 		// console.log(props);
 
 		return (
-			<div className="PokeCard" key={id}>
+			<div className="PokeCard">
 				<h2 className="PokeCard-title">{name}</h2>{' '}
 				<img
 					src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
