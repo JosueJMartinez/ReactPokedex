@@ -18,7 +18,7 @@ export default class PokeCard extends Component {
 					src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${paddingID(
 						id
 					)}.png`}
-					alt={`${name} picture`}
+					alt={`${name}`}
 				/>
 				<p>Type: {type}</p>
 				<p className="PokeCard-p">EXP: {exp}</p>{' '}

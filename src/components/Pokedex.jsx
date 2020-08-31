@@ -17,15 +17,16 @@ export default class Pokedex extends Component {
 	};
 	render() {
 		const props = this.props;
+		console.log(props);
 		return (
 			<div className="Pokedex">
-				{props.pokemon.map(poke => (
+				{props.pokemon.map((poke, idx) => (
 					<Pokecard
 						id={poke.id}
 						name={poke.name}
 						type={poke.type}
 						exp={poke.base_experience}
-						key={poke.id}
+						key={idx}
 					/>
 				))}
 			</div>
