@@ -7,3 +7,11 @@
 	margin-right: auto;
 	justify-content: space-evenly;
 }
+
+.Pokedex-winner {
+	color: #3eaf0e;
+}
+
+.Pokedex-loser {
+	color: #da3c0b;
+}

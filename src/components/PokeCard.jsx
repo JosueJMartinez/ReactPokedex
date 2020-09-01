@@ -10,12 +10,14 @@ export default class PokeCard extends Component {
 		return (
 			<div className="PokeCard">
 				<h2 className="PokeCard-title">{name}</h2>{' '}
-				<img
-					src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${paddingID(
-						id
-					)}.png`}
-					alt={`${name}`}
-				/>
+				<div className="PokeCard-image">
+					<img
+						src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${paddingID(
+							id
+						)}.png`}
+						alt={`${name}`}
+					/>
+				</div>
 				<p>Type: {type}</p>
 				<p className="PokeCard-p">EXP: {exp}</p>{' '}
 			</div>
