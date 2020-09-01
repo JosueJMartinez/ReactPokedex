@@ -5,12 +5,8 @@ export default class PokeCard extends Component {
 	render() {
 		const { id, type, name, exp } = this.props;
 		// console.log(props);
-		function paddingID(oldID) {
-			const stringID = oldID + '';
-			if (stringID.length === 1) return '00' + stringID;
-			else if (stringID.length === 2) return '0' + stringID;
-			return oldID;
-		}
+		const paddingID = oldID =>
+			oldID <= 999 ? `00${oldID}`.slice(-3) : oldID;
 		return (
 			<div className="PokeCard">
 				<h2 className="PokeCard-title">{name}</h2>{' '}
