@@ -17,18 +17,22 @@ export default class Pokedex extends Component {
 	};
 	render() {
 		const props = this.props;
-		console.log(props);
 		return (
-			<div className="Pokedex">
-				{props.pokemon.map((poke, idx) => (
-					<Pokecard
-						id={poke.id}
-						name={poke.name}
-						type={poke.type}
-						exp={poke.base_experience}
-						key={idx}
-					/>
-				))}
+			<div>
+				<h2>{props.name}</h2>
+				<h3>{props.isWinner && 'Winner'}</h3>
+				<h4>Total Exp: {props.totalExp}</h4>
+				<div className="Pokedex-flexbox">
+					{props.pokemon.map((poke, idx) => (
+						<Pokecard
+							id={poke.id}
+							name={poke.name}
+							type={poke.type}
+							exp={poke.base_experience}
+							key={idx}
+						/>
+					))}
+				</div>
 			</div>
 		);
 	}

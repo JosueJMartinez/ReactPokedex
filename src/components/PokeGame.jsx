@@ -37,10 +37,34 @@ export default class PokeGame extends Component {
 			}
 			return hand;
 		}
+
+		function calcExp(pokedex) {
+			let totalExp = 0;
+			pokedex.forEach(pokemon => {
+				totalExp += pokemon.base_experience;
+			});
+			return totalExp;
+		}
+
+		const p1 = rand4Poke();
+		const p2 = rand4Poke();
+		const p1Exp = calcExp(p1);
+		const p2Exp = calcExp(p2);
+
 		return (
 			<div>
-				<Pokedex pokemon={rand4Poke()} />
-				<Pokedex pokemon={rand4Poke()} />
+				<Pokedex
+					pokemon={p1}
+					name="Player 1"
+					isWinner={p1Exp > p2Exp ? true : false}
+					totalExp={p1Exp}
+				/>
+				<Pokedex
+					pokemon={p2}
+					name="Player 2"
+					isWinner={p1Exp < p2Exp ? true : false}
+					totalExp={p2Exp}
+				/>
 			</div>
 		);
 	}
