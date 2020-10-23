@@ -1,13 +1,13 @@
-import React from 'react';
-import '../css/App.css';
-import PokeGame from './PokeGame';
+import React from "react";
+import "../css/App.css";
+import PokeGame from "./PokeGame";
 
 function App() {
-	return (
-		<div className="App">
-			<PokeGame />
-		</div>
-	);
+  return (
+    <div className="App">
+      <PokeGame />
+    </div>
+  );
 }
 
 export default App;
