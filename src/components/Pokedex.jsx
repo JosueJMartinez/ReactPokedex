@@ -26,15 +26,19 @@ export default class Pokedex extends Component {
         </h3>
         <h4>Total Exp: {props.totalExp}</h4>
         <div className="Pokedex-cards">
-          {props.pokemon.map((poke, idx) => (
-            <Pokecard
-              id={poke.id}
-              name={poke.name}
-              types={poke.types}
-              exp={poke.base_experience}
-              key={idx}
-            />
-          ))}
+          {props.pokemon.length
+            ? props.pokemon[0].map((poke, idx) => (
+                <Pokecard
+                  id={poke.id}
+                  name={poke.name}
+                  types={poke.types}
+                  exp={poke.base_experience}
+                  key={idx}
+                  otherInfo={props.pokemon[1][idx]}
+                  abilities={poke.abilities}
+                />
+              ))
+            : ""}
         </div>
       </div>
     );
