@@ -4,9 +4,22 @@ import "../css/PokeCard.css";
 
 export default class PokeCard extends Component {
   render() {
-    const { id, type, name, exp } = this.props;
+    const { id, types, name, exp } = this.props;
     const paddingID = oldID =>
       oldID <= 999 ? `00${oldID}`.slice(-3) : oldID;
+
+    const getTypes = () => {
+      // console.log(types);
+      let typeRow = "";
+      for (let i = 0; i < types.length; i++) {
+        if (i === 0) {
+          typeRow = types[i].type.name;
+          continue;
+        }
+        typeRow = typeRow.concat(", ").concat(types[i].type.name);
+      }
+      return typeRow;
+    };
 
     return (
       <ReactCardFlipper
@@ -26,7 +39,7 @@ export default class PokeCard extends Component {
               alt={`${name}`}
             />
           </div>
-          <p>Type: {type}</p>
+          <p>Types: {getTypes()}</p>
           <p className="PokeCard-p">EXP: {exp}</p>{" "}
         </div>
 
