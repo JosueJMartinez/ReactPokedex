@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Pokedex from "./Pokedex";
 import Axios from "axios";
 
+const POKE_API_BASE_URL = "https://pokeapi.co/api/v2/";
+
 export default class PokeGame extends Component {
   static defaultProps = {
     pokemon: [
@@ -51,7 +53,7 @@ export default class PokeGame extends Component {
 
   getTotalPokemon = async () => {
     const res = await Axios.get(
-      "https://pokeapi.co/api/v2/pokemon-species/?limit=1"
+      `${POKE_API_BASE_URL}pokemon-species/?limit=1`
     );
     return res.data.count;
   };
@@ -70,12 +72,10 @@ export default class PokeGame extends Component {
 
     for (let i = 0; i < 4; i++) {
       const rand = Math.floor(Math.random() * totalPokemon);
-      let res = await Axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${rand + 1}`
-      );
+      let res = await Axios.get(`${POKE_API_BASE_URL}pokemon/${rand + 1}`);
       hand.push(res.data);
       res = await Axios.get(
-        `https://pokeapi.co/api/v2/pokemon-species/${rand + 1}`
+        `${POKE_API_BASE_URL}pokemon-species/${rand + 1}`
       );
       data.push(res.data);
     }
