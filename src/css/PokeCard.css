@@ -11,13 +11,13 @@
   cursor: pointer;
 }
 .PokeCard-title {
-  font-size: 2rem;
-  color: blue;
+  font-size: 1.5rem;
+  /* color: blue; */
   margin-top: 0;
 }
 
 .PokeCard p {
-  margin: 0rem;
+  margin: 0.5rem;
 }
 
 .PokeCard p.PokeCard-p {
@@ -36,6 +36,10 @@
 .PokeCard-image {
   border-radius: 1px;
   background-color: whitesmoke;
+}
+
+.PokeCard-grey {
+  color: grey;
 }
 
 .PokeCard-flipper {

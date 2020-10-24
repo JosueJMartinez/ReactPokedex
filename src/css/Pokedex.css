@@ -1,17 +1,23 @@
 .Pokedex-cards {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	/* width: 1200px; */
-	margin-left: auto;
-	margin-right: auto;
-	justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* width: 1200px; */
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-evenly;
+  padding: 30px;
 }
 
 .Pokedex-winner {
-	color: #3eaf0e;
+  color: #3eaf0e;
 }
 
 .Pokedex-loser {
-	color: #da3c0b;
+  color: #da3c0b;
+}
+
+.Pokedex-header {
+  margin: 0;
+  padding: 20px;
 }

@@ -20,7 +20,7 @@ export default class Pokedex extends Component {
     console.log(props);
     return (
       <div className="Pokedex">
-        <h2>{props.name}</h2>
+        <h2 className={"Pokedex-header"}>{props.name}</h2>
         <h3 className={`Pokedex-${props.isWinner ? "winner" : "loser"}`}>
           {props.isWinner ? "Winner" : "Loser"}
         </h3>
