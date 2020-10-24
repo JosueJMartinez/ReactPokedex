@@ -55,6 +55,12 @@ export default class PokeCard extends Component {
       return chroma(color).luminance() < 0.08;
     };
 
+    const getCardColor = () => {
+      if (otherInfo.color)
+        return checkFontColor(otherInfo.color.name) ? "PokeCard-grey" : "";
+      return "";
+    };
+
     return (
       <ReactCardFlipper
         width="225px"
@@ -64,9 +70,7 @@ export default class PokeCard extends Component {
         className="PokeCard-flipper"
       >
         <div
-          className={`PokeCard ${
-            checkFontColor(otherInfo.color.name) ? "PokeCard-grey" : ""
-          }`}
+          className={`PokeCard ${getCardColor()}`}
           style={{ backgroundColor: otherInfo.color.name }}
         >
           <h2 className={`PokeCard-title `}>{name}</h2>{" "}

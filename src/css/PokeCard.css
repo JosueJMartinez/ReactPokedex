@@ -12,7 +12,6 @@
 }
 .PokeCard-title {
   font-size: 1.5rem;
-  /* color: blue; */
   margin-top: 0;
 }
 
@@ -43,6 +42,5 @@
 }
 
 .PokeCard-flipper {
-  /* margin: 10px; */
   padding: 30px;
 }

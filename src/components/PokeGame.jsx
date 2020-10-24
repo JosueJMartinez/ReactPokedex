@@ -38,19 +38,27 @@ export default class PokeGame extends Component {
     hand1: [],
     hand2: [],
     isLoading: true,
+    totalPokemon: 0,
   };
 
   async componentDidMount() {
     const totalPokemon = await this.getTotalPokemon();
-    const totalData1 = await this.init(totalPokemon);
-    const totalData2 = await this.init(totalPokemon);
+    this.setState({ totalPokemon });
+    this.init();
+  }
+
+  init = async () => {
+    const totalData1 = await this.initializeHand();
+    const totalData2 = await this.initializeHand();
     this.setState({
       hand1: totalData1,
       hand2: totalData2,
       isLoading: false,
     });
     document.querySelector("body").classList.remove("fullScreenHeight");
-  }
+    document.querySelector("#root").classList.remove("fullScreenHeight");
+    document.querySelector(".App").classList.remove("fullScreenHeight");
+  };
 
   getTotalPokemon = async () => {
     const res = await Axios.get(
@@ -59,9 +67,9 @@ export default class PokeGame extends Component {
     return res.data.count;
   };
 
-  init = totalPokemon => {
+  initializeHand = () => {
     try {
-      return this.getRandomPoke(totalPokemon);
+      return this.getRandomPoke(this.state.totalPokemon);
     } catch (e) {
       console.log("failure");
     }
@@ -87,15 +95,9 @@ export default class PokeGame extends Component {
   handleClick = async () => {
     this.setState({ hand1: [], hand2: [], isLoading: true });
     document.querySelector("body").classList.add("fullScreenHeight");
-    const totalPokemon = await this.getTotalPokemon();
-    const totalData1 = await this.init(totalPokemon);
-    const totalData2 = await this.init(totalPokemon);
-    this.setState({
-      hand1: totalData1,
-      hand2: totalData2,
-      isLoading: false,
-    });
-    document.querySelector("body").classList.remove("fullScreenHeight");
+    document.querySelector("#root").classList.add("fullScreenHeight");
+    document.querySelector(".App").classList.add("fullScreenHeight");
+    this.init();
   };
 
   render() {
@@ -115,23 +117,36 @@ export default class PokeGame extends Component {
     const p2Exp = calcExp(p2[0]);
 
     return (
-      <div>
-        <Pokedex
-          pokemon={p1}
-          name="Player 1"
-          isWinner={p1Exp > p2Exp ? true : false}
-          totalExp={p1Exp}
-        />
-        <Pokedex
-          pokemon={p2}
-          name="Player 2"
-          isWinner={p1Exp < p2Exp ? true : false}
-          totalExp={p2Exp}
-        />
-        {!this.state.isLoading && (
-          <button className="PokeGame-restart" onClick={this.handleClick}>
-            Get More Pokemon?
-          </button>
+      <div
+        className={`PokeGame ${
+          this.state.isLoading ? "fullScreenHeight" : ""
+        }`}
+      >
+        {this.state.isLoading ? (
+          <i className="fas fa-spinner fa-spin fa-8x PokeGame-loading-icon"></i>
+        ) : (
+          <>
+            <Pokedex
+              pokemon={p1}
+              name="Player 1"
+              isWinner={p1Exp > p2Exp ? true : false}
+              totalExp={p1Exp}
+            />
+            <Pokedex
+              pokemon={p2}
+              name="Player 2"
+              isWinner={p1Exp < p2Exp ? true : false}
+              totalExp={p2Exp}
+            />
+            {!this.state.isLoading && (
+              <button
+                className="PokeGame-restart"
+                onClick={this.handleClick}
+              >
+                Get More Pokemon?
+              </button>
+            )}
+          </>
         )}
       </div>
     );

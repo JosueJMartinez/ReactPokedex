@@ -4,7 +4,7 @@ import PokeGame from "./PokeGame";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App fullScreenHeight">
       <PokeGame />
     </div>
   );

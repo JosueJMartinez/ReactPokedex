@@ -1,0 +1,14 @@
+.PokeGame-restart {
+  margin: 1rem;
+}
+
+.PokeGame-loading-icon {
+  color: aquamarine;
+}
+
+.fullScreenHeight {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

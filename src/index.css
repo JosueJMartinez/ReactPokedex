@@ -8,8 +8,6 @@ body {
     "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  /* padding: 25px 0; */
   background: #03001e; /* fallback for old browsers */
   background-image: -webkit-linear-gradient(
     to right,
