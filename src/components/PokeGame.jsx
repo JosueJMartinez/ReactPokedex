@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Pokedex from "./Pokedex";
 import Axios from "axios";
+import "../css/PokeGame.css";
 
 const POKE_API_BASE_URL = "https://pokeapi.co/api/v2/";
 
@@ -32,14 +33,12 @@ export default class PokeGame extends Component {
       { id: 133, name: "Eevee", type: "normal", base_experience: 65 },
     ],
   };
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      hand1: [],
-      hand2: [],
-    };
-  }
+  state = {
+    hand1: [],
+    hand2: [],
+    isLoading: true,
+  };
 
   async componentDidMount() {
     const totalPokemon = await this.getTotalPokemon();
@@ -48,7 +47,9 @@ export default class PokeGame extends Component {
     this.setState({
       hand1: totalData1,
       hand2: totalData2,
+      isLoading: false,
     });
+    document.querySelector("body").classList.remove("fullScreenHeight");
   }
 
   getTotalPokemon = async () => {
@@ -83,6 +84,20 @@ export default class PokeGame extends Component {
     return totalData;
   };
 
+  handleClick = async () => {
+    this.setState({ hand1: [], hand2: [], isLoading: true });
+    document.querySelector("body").classList.add("fullScreenHeight");
+    const totalPokemon = await this.getTotalPokemon();
+    const totalData1 = await this.init(totalPokemon);
+    const totalData2 = await this.init(totalPokemon);
+    this.setState({
+      hand1: totalData1,
+      hand2: totalData2,
+      isLoading: false,
+    });
+    document.querySelector("body").classList.remove("fullScreenHeight");
+  };
+
   render() {
     function calcExp(pokedex) {
       let totalExp = 0;
@@ -113,6 +128,11 @@ export default class PokeGame extends Component {
           isWinner={p1Exp < p2Exp ? true : false}
           totalExp={p2Exp}
         />
+        {!this.state.isLoading && (
+          <button className="PokeGame-restart" onClick={this.handleClick}>
+            Get More Pokemon?
+          </button>
+        )}
       </div>
     );
   }

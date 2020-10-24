@@ -8,7 +8,7 @@ body {
     "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* height: 100vh; */
+
   /* padding: 25px 0; */
   background: #03001e; /* fallback for old browsers */
   background-image: -webkit-linear-gradient(
@@ -27,6 +27,10 @@ body {
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   background-attachment: fixed !important;
+}
+
+.fullScreenHeight {
+  height: 100vh;
 }
 
 code {
