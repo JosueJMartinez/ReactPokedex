@@ -8,20 +8,16 @@ body {
     "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #03001e; /* fallback for old browsers */
-  background-image: -webkit-linear-gradient(
+  background: #2c3e50; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
     to right,
-    #fdeff9,
-    #ec38bc,
-    #7303c0,
-    #03001e
+    #3498db,
+    #2c3e50
   ); /* Chrome 10-25, Safari 5.1-6 */
-  background-image: linear-gradient(
+  background: linear-gradient(
     to right,
-    #fdeff9,
-    #ec38bc,
-    #7303c0,
-    #03001e
+    #3498db,
+    #2c3e50
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   background-attachment: fixed !important;
